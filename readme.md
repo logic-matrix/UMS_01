@@ -1,1 +1,1 @@
-<h2 align='center'>University Management System</h2>
+<h2 align='center'>University Management System - Demo</h2>
