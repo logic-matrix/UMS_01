@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KKBAU</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: #1E2A78;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav .logo {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 12px;
+            display: block;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+        }
+
+        /* Dropdown Menu */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 35px;
+            left: 0;
+            background: #1E2A78;
+            border-radius: 6px;
+            min-width: 180px;
+            flex-direction: column;
+            z-index: 10;
+        }
+
+        nav ul li:hover ul {
+            display: flex;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 15px;
+        }
+
+        nav .login-btn {
+            background-color: #FF6B6B;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        nav .login-btn:hover {
+            background-color: #FF4B4B;
+        }
+
+        /* Hero Slider */
+        .slider {
+            margin-top: 70px;
+            position: relative;
+            width: 100%;
+            max-height: 500px;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 500px;
+            position: relative;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .slide1 {
+            background: url('https://source.unsplash.com/1600x500/?university,campus') center/cover no-repeat;
+        }
+
+        .slide2 {
+            background: url('https://source.unsplash.com/1600x500/?library') center/cover no-repeat;
+        }
+
+        .slide3 {
+            background: url('https://source.unsplash.com/1600x500/?students,classroom') center/cover no-repeat;
+        }
+
+        /* Slider navigation */
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            user-select: none;
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        /* Section */
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: auto;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1E2A78;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+
+            nav ul li {
+                width: 100%;
+            }
+
+            nav ul li ul {
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+
+            .slide {
+                font-size: 24px;
+                height: 300px;
+            }
+
+            .prev,
+            .next {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">KKBAU</div>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="about/">About</a></li>
+            <li>
+                <a href="#">Administration ▼</a>
+                <ul>
+                    <li><a href="#">Board of Trustees</a></li>
+                    <li><a href="#">Offices</a></li>
+                    <li><a href="#">Policies</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Academic</a></li>
+            <li><a href="#">Admission</a></li>
+            <li><a href="career/">Career</a></li>
+            <li><a href="contact/">Contact</a></li>
+        </ul>
+        <button class="login-btn" onclick="window.location.href='/admin/login'">Login</button>
+    </nav>
+
+    <div class="slider">
+        <div class="slides">
+            <div class="slide slide1">Welcome to KKBAU</div>
+            <div class="slide slide2">Explore Our Library & Resources</div>
+            <div class="slide slide3">Join Our Vibrant Campus Life</div>
+        </div>
+        <div class="prev" onclick="changeSlide(-1)">&#10094;</div>
+        <div class="next" onclick="changeSlide(1)">&#10095;</div>
+    </div>
+
+    <section>
+        <h2>About Us</h2>
+        <p>
+            Khulna Khan Bahadur Ahsanullah University is committed to excellence in education, research, and community
+            engagement.
+            Join a diverse community of learners and scholars.
+        </p>
+    </section>
+
+    <section>
+        <h2>Programs Offered</h2>
+        <p>
+            Explore a wide range of undergraduate, graduate, and professional programs designed to
+            prepare students for success in a rapidly changing world.
+        </p>
+    </section>
+
+    <footer>
+        &copy; 2025 KKBAU. All rights reserved.
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            if (index >= slides.length) slideIndex = 0;
+            else if (index < 0) slideIndex = slides.length - 1;
+            else slideIndex = index;
+
+            const slidesContainer = document.querySelector('.slides');
+            slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+
+        function changeSlide(n) {
+            showSlide(slideIndex + n);
+        }
+
+        // Auto slide every 5 seconds
+        setInterval(() => { changeSlide(1); }, 5000);
+
+        showSlide(slideIndex);
+    </script>
+
+</body>
+
+</html>
