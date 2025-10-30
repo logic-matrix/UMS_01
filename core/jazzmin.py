@@ -24,14 +24,14 @@ JAZZMIN_SETTINGS = {
     "site_icon": None,
 
     # Welcome text on the login screen
-    "welcome_sign": "Welcome to the library",
+    "welcome_sign": "Welcome to the KKBAU",
 
     # Copyright on the footer
-    "copyright": "Acme Library Ltd",
+    "copyright": "LogicMatrix",
 
     # List of model admins to search from the search bar, search bar omitted if excluded
     # If you want to use a single search field you dont need to use a list, you can use a simple string 
-    "search_model": ["auth.User", "auth.Group"],
+    #"search_model": ["auth.User", "auth.Group"],
 
     # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
     "user_avatar": None,
@@ -47,13 +47,13 @@ JAZZMIN_SETTINGS = {
         {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
 
         # external url that opens in a new window (Permissions can be added)
-        {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+        #{"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
 
         # model admin to link to (Permissions checked against model)
-        {"model": "auth.User"},
+        {"model": "auth.User",},
 
         # App with dropdown menu to all its models pages (Permissions checked against models)
-        {"name": "Student", "url": "admin:Studet", "permission": ["auth.view_user"]},
+        #{"name": "Student", "url": "admin:Studet", "permission": ["auth.view_user"]},
     ],
 
     #############
@@ -63,7 +63,7 @@ JAZZMIN_SETTINGS = {
     # Additional links to include in the user menu on the top right ("app" url type is not allowed)
     "usermenu_links": [
         {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
-        {"model": "auth.user"}
+        {"model": "auth.user",}
     ],
 
     #############
@@ -80,7 +80,7 @@ JAZZMIN_SETTINGS = {
     "hide_apps": [],
 
     # Hide these models when generating side menu (e.g auth.user)
-    "hide_models": [],
+    "hide_models": ["auth.user", "auth.group"],
 
     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
     "order_with_respect_to": ["auth", "books", "books.author", "books.book"],
@@ -145,9 +145,9 @@ JAZZMIN_UI_TWEAKS = {
     "no_navbar_border": False,
     "body_small_text": False,
     "brand_small_text": False,
-    "brand_colour": "navbar-primary",
+    "brand_colour": "navbar-dark",
     "accent": "accent-info",
-    "sidebar": "sidebar-dark-primary",
+    "sidebar": "sidebar-dark-secondary",
     "sidebar_fixed": True,
     "sidebar_nav_small_text": False,
     "sidebar_disable_expand": False,
