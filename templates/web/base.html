@@ -17,9 +17,30 @@
 
         body {
             overflow-x: hidden;
+            background-color: #fdfdfd;
+            /* Soft white for eye comfort */
+            color: #333;
+            /* Dark text for contrast */
         }
 
-        /* ===== NAVBAR ===== */
+        /* ===== TOP NAVBAR ===== */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0f1c50;
+            color: white;
+            padding: 5px 40px;
+            font-size: 0.9rem;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        /* ===== MAIN NAVBAR ===== */
         nav {
             display: flex;
             justify-content: space-between;
@@ -27,7 +48,7 @@
             background-color: #1E2A78;
             color: white;
             padding: 12px 40px;
-            position: fixed;
+            position: sticky;
             top: 0;
             width: 100%;
             z-index: 10;
@@ -39,48 +60,47 @@
             letter-spacing: 1px;
         }
 
-        ul {
-            list-style: none;
+        .nav-links {
             display: flex;
-            gap: 18px;
             align-items: center;
+            gap: 15px;
         }
 
-        ul li {
-            position: relative;
-        }
-
-        ul li a {
+        .nav-links a {
             color: white;
             text-decoration: none;
             padding: 8px 12px;
-            display: block;
+            border-radius: 6px;
             transition: 0.3s;
         }
 
-        ul li a:hover {
+        .nav-links a:hover {
             background: rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
         }
 
         /* Dropdown */
-        ul li ul {
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
             display: none;
             position: absolute;
             top: 35px;
             left: 0;
             background-color: #1E2A78;
-            border-radius: 6px;
             flex-direction: column;
             min-width: 180px;
+            border-radius: 6px;
+            z-index: 100;
         }
 
-        ul li:hover ul {
-            display: flex;
-        }
-
-        ul li ul li a {
+        .dropdown-content a {
             padding: 10px 15px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
         }
 
         .login-btn {
@@ -99,22 +119,45 @@
 
         /* ===== HERO SECTION ===== */
         .hero {
-            margin-top: 65px;
-            height: 300px;
+            margin-top: 120px;
+            height: 350px;
             background: url('https://source.unsplash.com/1600x400/?university,campus') center/cover no-repeat;
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             text-align: center;
             padding: 0 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         /* ===== CONTENT ===== */
         main {
             padding: 40px 20px;
+            background-color: #fdfdfd;
+            /* Soft white for all pages */
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            /* Slightly brighter white for each section */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        section h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #1E2A78;
+        }
+
+        section p {
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         /* ===== FOOTER ===== */
@@ -128,21 +171,18 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            nav {
-                flex-wrap: wrap;
-                padding: 10px 20px;
-            }
-
-            ul {
+            .nav-links {
                 display: none;
-                width: 100%;
                 flex-direction: column;
+                width: 100%;
                 background-color: #1E2A78;
-                margin-top: 10px;
-                border-radius: 8px;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                border-radius: 0 0 8px 8px;
             }
 
-            ul.active {
+            .nav-links.active {
                 display: flex;
             }
 
@@ -150,59 +190,77 @@
                 display: block;
                 font-size: 1.5rem;
                 cursor: pointer;
+                color: white;
             }
 
-            .login-btn {
-                padding: 6px 12px;
+            .hero {
+                height: 250px;
+                font-size: 1.8rem;
             }
+        }
 
+        @media (max-width: 480px) {
             .hero {
                 height: 200px;
                 font-size: 1.5rem;
             }
         }
 
-        @media (max-width: 480px) {
-            .hero {
-                height: 160px;
-                font-size: 1.2rem;
+        .menu-toggle {
+            display: none;
+            /* hide by default */
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Show toggle only on smaller screens */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
             }
         }
     </style>
 </head>
 
 <body>
+    <!-- Top Navbar -->
+    <div class="top-nav">
+        <div>📞 +880 1234 567890 | ✉️ info@kkbau.edu</div>
+        <div>
+            <a href="#">Alumni</a>
+            <a href="#">Students</a>
+            <a href="#">Staff</a>
+        </div>
+    </div>
+    
+    <!-- Main Navbar -->
     <nav>
-        <div class="logo">KKBAU</div>
+        <div class="logo">Khulna Khan Bahadur Ahsanullah University</div>
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-        <ul id="menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li>
+        <div class="nav-links" id="menu">
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <div class="dropdown">
                 <a href="#">Administration ▼</a>
-                <ul>
-                    <li><a href="#">Board of Trustees</a></li>
-                    <li><a href="#">Offices</a></li>
-                    <li><a href="#">Policies</a></li>
-                </ul>
-            </li>
-            <li><a href="/academic">Academic</a></li>
-            <li><a href="/admission">Admission</a></li>
-            <li><a href="/career">Career</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-
-        <button class="login-btn" onclick="window.location.href='/admin/login'">Login</button>
+                <div class="dropdown-content">
+                    <a href="#">Vice Chancellor</a>
+                    <a href="#">Registrar</a>
+                    <a href="#">Departments</a>
+                </div>
+                </div>
+                <a href="/academic">Academic</a>
+                <a href="/admission">Admission</a>
+                <a href="/career">Career</a>
+                <a href="/contact">Contact</a>
+                <button class="login-btn" onclick="window.location.href='/admin/login'">Login</button>
+        </div>
     </nav>
 
-    <div class="hero">
-        Welcome to KKBAU
-    </div>
 
     <main>
         {% block content %}
-        <!-- Your page content goes here -->
+        <!-- Page content goes here -->
         {% endblock %}
     </main>
 
