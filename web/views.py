@@ -15,3 +15,10 @@ def career(request):
 
 def contact(request):
     return render(request, 'web/contact.html')
+
+def academic(request):
+    return render(request, 'web/academic.html')
+
+
+def admission(request):
+    return render(request, 'web/admission.html')

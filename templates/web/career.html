@@ -1,19 +1,93 @@
 {% extends 'web/base.html' %}
+{% load static %}
 {% block content %}
 
-<div class="hero"
-    style="background: url('https://source.unsplash.com/1600x500/?career,office') center/cover no-repeat; height: 400px; display:flex; justify-content:center; align-items:center; color:white;">
-    <h1>Career Opportunities</h1>
+<!-- Hero Section -->
+<div class="hero" style="background: url('/static/career.jpg') center/cover no-repeat;
+           height: 420px; display:flex; justify-content:center; align-items:center; color:white;
+           text-align:center; poition:relative;">
+
+    <div style="background: rgba(0, 0, 0, 0.55); padding: 60px 20px; border-radius: 10px;">
+        <h1 style="font-size: 2.8rem; font-weight: 700; letter-spacing: 1px;">Join Our Mission</h1>
+        <p style="font-size: 1.2rem; margin-top: 10px;">Discover exciting career opportunities and grow with KKBAU.</p>
+    </div>
 </div>
 
-<section>
-    <h2>Faculty & Staff</h2>
-    <p>Explore job openings and career opportunities at KKBAU.</p>
+<!-- Career Intro Section -->
+<section style="max-width: 1000px; margin: 60px auto; text-align:center; padding: 0 20px;">
+    <h2 style="font-size: 2rem; color:#1E2A78; margin-bottom:15px;">Why Work With Us?</h2>
+    <p style="font-size: 1.1rem; color:#444;">
+        At <strong>KKBAU</strong>, we believe in empowering individuals through innovation, education, and
+        collaboration.
+        Whether you're an experienced professional or a student starting your journey, we provide an environment
+        that nurtures talent, creativity, and leadership.
+    </p>
 </section>
 
-<section>
-    <h2>Student Careers</h2>
-    <p>Resources and support for student internships and placements.</p>
+<!-- Faculty & Staff Section -->
+<section style="background-color:#f4f7fb; padding: 60px 20px;">
+    <div style="max-width: 1000px; margin:auto; text-align:center;">
+        <h2 style="font-size: 1.8rem; color:#1E2A78; margin-bottom:15px;">Faculty & Staff Careers</h2>
+        <p style="font-size: 1rem; color:#444; margin-bottom:30px;">
+            Join a community of educators, researchers, and professionals dedicated to academic excellence.
+            Explore open positions in teaching, research, and administration.
+        </p>
+        <a href="#" style="background-color:#1E2A78; color:white; padding:12px 28px; border-radius:8px;
+            text-decoration:none; font-weight:500; transition:background 0.3s;">
+            View Open Positions
+        </a>
+    </div>
 </section>
+
+<!-- Student Careers Section -->
+<section style="padding: 60px 20px;">
+    <div style="max-width: 1000px; margin:auto; text-align:center;">
+        <h2 style="font-size: 1.8rem; color:#1E2A78; margin-bottom:15px;">Student Opportunities</h2>
+        <p style="font-size: 1rem; color:#444; margin-bottom:30px;">
+            Our students gain real-world experience through internships, training, and on-campus placements.
+            Discover opportunities to learn, grow, and build your career with industry leaders.
+        </p>
+        <a href="#" style="background-color:#007bff; color:white; padding:12px 28px; border-radius:8px;
+            text-decoration:none; font-weight:500; transition:background 0.3s;">
+            Explore Internships
+        </a>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section
+    style="background: linear-gradient(135deg, #1E2A78, #007bff); color:white; text-align:center; padding:60px 20px;">
+    <h2 style="font-size:2rem; margin-bottom:10px;">Be Part of Something Meaningful</h2>
+    <p style="font-size:1.1rem; margin-bottom:30px;">Join KKBAU and contribute to shaping the future of education and
+        research.</p>
+    <a href="#"
+        style="background:white; color:#1E2A78; padding:12px 28px; border-radius:8px; text-decoration:none; font-weight:600;">
+        Apply Now
+    </a>
+</section>
+
+<style>
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2rem !important;
+        }
+
+        .hero p {
+            font-size: 1rem !important;
+        }
+
+        section h2 {
+            font-size: 1.6rem !important;
+        }
+
+        section p {
+            font-size: 0.95rem !important;
+        }
+    }
+
+    a:hover {
+        opacity: 0.9;
+    }
+</style>
 
 {% endblock %}
