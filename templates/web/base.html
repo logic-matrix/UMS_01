@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KKBAU</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
     <style>
         * {
             margin: 0;
@@ -18,12 +17,10 @@
         body {
             overflow-x: hidden;
             background-color: #fdfdfd;
-            /* Soft white for eye comfort */
             color: #333;
-            /* Dark text for contrast */
         }
 
-        /* ===== TOP NAVBAR ===== */
+        /* Top Nav */
         .top-nav {
             display: flex;
             justify-content: space-between;
@@ -40,7 +37,7 @@
             margin-left: 15px;
         }
 
-        /* ===== MAIN NAVBAR ===== */
+        /* Main Nav */
         nav {
             display: flex;
             justify-content: space-between;
@@ -78,7 +75,6 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
-        /* Dropdown */
         .dropdown {
             position: relative;
         }
@@ -87,12 +83,10 @@
             display: none;
             position: absolute;
             top: 35px;
-            left: 0;
-            background-color: #1E2A78;
+            background: #1E2A78;
             flex-direction: column;
             min-width: 180px;
             border-radius: 6px;
-            z-index: 100;
         }
 
         .dropdown-content a {
@@ -104,63 +98,19 @@
         }
 
         .login-btn {
-            background-color: #FF6B6B;
+            background: #FF6B6B;
             border: none;
             color: white;
             padding: 8px 16px;
-            border-radius: 6px;
             cursor: pointer;
-            transition: 0.3s;
+            border-radius: 6px;
         }
 
         .login-btn:hover {
-            background-color: #FF4B4B;
+            background: #FF4B4B;
         }
 
-        /* ===== HERO SECTION ===== */
-        .hero {
-            margin-top: 120px;
-            height: 350px;
-            background: url('https://source.unsplash.com/1600x400/?university,campus') center/cover no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            padding: 0 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-        }
-
-        /* ===== CONTENT ===== */
-        main {
-            padding: 40px 20px;
-            background-color: #fdfdfd;
-            /* Soft white for all pages */
-        }
-
-        section {
-            margin-bottom: 40px;
-            padding: 40px 20px;
-            background-color: #ffffff;
-            /* Slightly brighter white for each section */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-        }
-
-        section h2 {
-            margin-bottom: 20px;
-            font-size: 2rem;
-            color: #1E2A78;
-        }
-
-        section p {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        /* ===== FOOTER ===== */
+        /* Footer */
         footer {
             background-color: #1E2A78;
             color: white;
@@ -169,55 +119,30 @@
             font-size: 0.9rem;
         }
 
-        /* ===== RESPONSIVE ===== */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                color: white;
+                font-size: 1.4rem;
+            }
+
             .nav-links {
                 display: none;
                 flex-direction: column;
                 width: 100%;
-                background-color: #1E2A78;
+                background: #1E2A78;
                 position: absolute;
                 top: 60px;
                 left: 0;
-                border-radius: 0 0 8px 8px;
             }
 
             .nav-links.active {
                 display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-                font-size: 1.5rem;
-                cursor: pointer;
-                color: white;
-            }
-
-            .hero {
-                height: 250px;
-                font-size: 1.8rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                height: 200px;
-                font-size: 1.5rem;
-            }
-        }
-
-        .menu-toggle {
-            display: none;
-            /* hide by default */
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: white;
-        }
-
-        /* Show toggle only on smaller screens */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
             }
         }
     </style>
@@ -226,14 +151,14 @@
 <body>
     <!-- Top Navbar -->
     <div class="top-nav">
-        <div>📞 +880 1234 567890 | ✉️ info@kkbau.edu</div>
+        <div>📞 +880 1234 567890 | ✉ info@kkbau.edu</div>
         <div>
             <a href="#">Alumni</a>
             <a href="#">Students</a>
             <a href="#">Staff</a>
         </div>
     </div>
-    
+
     <!-- Main Navbar -->
     <nav>
         <div class="logo">Khulna Khan Bahadur Ahsanullah University</div>
@@ -248,24 +173,22 @@
                     <a href="#">Registrar</a>
                     <a href="#">Departments</a>
                 </div>
-                </div>
-                <a href="/academic">Academic</a>
-                <a href="/admission">Admission</a>
-                <a href="/career">Career</a>
-                <a href="/contact">Contact</a>
-                <button class="login-btn" onclick="window.location.href='/admin/login'">Login</button>
+            </div>
+            <a href="/academic">Academic</a>
+            <a href="/admission">Admission</a>
+            <a href="/career">Career</a>
+            <a href="/contact">Contact</a>
+            <button class="login-btn" onclick="window.location.href='/admin/login'">Login</button>
         </div>
     </nav>
 
-
     <main>
         {% block content %}
-        <!-- Page content goes here -->
         {% endblock %}
     </main>
 
     <footer>
-        &copy; 2025 KKBAU. All rights reserved.
+        &copy; 2025 KKBAU. All Rights Reserved.
     </footer>
 
     <script>
